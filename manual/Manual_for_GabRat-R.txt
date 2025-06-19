@@ -1,0 +1,103 @@
+/////////////////////////////////////////////////////////////////////////
+// Operation manual for GabRat-R and GabRat-RR on Natumushi 2.0 
+//
+// 19 Jun 2025 Masahiko Tanahashi
+//
+
+Related publications:
+------------------------------------------------------------------------
+    An overview of GabRat edge disruption and its new extensions 
+       for unbiased quantification of disruptive camouflaging 
+             patterns using randomization technique
+
+        Masahiko Tanahashi, Min-Chen Lin, Chung-Ping Lin
+
+  *PLOS One, in press
+  Preprint in bioRxiv (doi: https://doi.org/10.1101/2024.02.27.582325)
+------------------------------------------------------------------------
+
+1. Download the Natsumushi app
+ - Latest version will be available in the author's website:
+   https://sites.google.com/site/mtahashilucanid/program/natsumushi
+ - To install the app, create any file folder and extract the zip 
+   file into the directory. Natshumushi app does not use the windows
+   registory. All the app settings are saved in "Natsumushi.ini" file
+   when exiting the app, and loaded when restarting the app. To inhibit
+   the unexpected changes of app settings, set the ini file as read-only
+   after you apply proper customization. To clear all the custom settings
+   and restore their default, delete the ini file or rename it.   
+ 
+2. App settings before use
+ - To clear all settings, delete an exsisting "Natsumushi.ini" file
+   (recommended). 
+ - Open Natsumushi 2.0 software on Windows.
+ - Go to [View] -> [Window Layout] and select one of the 'Extra windows' 
+   views (10 or 11 are recommended). The app will be restarted.   
+ - Click the [Settings] toolbar button (the gear icon) to show the setting 
+   window. It is located left of the main window and have green background 
+   when the setting mode is active. Scroll the view and find the environment 
+   variables for GabRat settings (most of their names begin with "gabrat." 
+   but a few display options are grouped in "silent."). Modify them as 
+   required and close the app (it saves all the setting changes to 
+   "Natsumushi.ini" file). Set the ini file as read-only, if you want to 
+   avoid unexpected changes to the settings. Belows are typical GabRat 
+   settings for different analyses.
+
+   Fixed settings (recommended):
+    gabrat.baseangle = 0.000000
+    gabrat.fx = 2.000000
+    gabrat.gamma = 1.000000
+    gabrat.nangles = 4
+  
+  For Original GabRat:
+    gabrat.random_nindividual = 0
+    gabrat.random_nrepeat = 0
+    gabrat.random_rndbaseangle = false
+
+  For GabRat-R:
+    gabrat.random_nindividual = 1
+    gabrat.random_nrepeat = 1000 (*typically)
+    gabrat.random_rndbaseangle = true
+  
+  For GabRat-RR:
+    gabrat.random_nindividual = 1000 (*typically)
+    gabrat.random_nrepeat = 1
+    gabrat.random_rndbaseangle = true
+    gabrat.random_usebgmask = 0 (*use entire range of the background)
+      or,
+    gabrat.random_usebgmask = 1 (*use specified range of the background)
+
+3. Calculation
+   
+3a. Original GabRat
+  - Open the image in the Natsumushi 2.0 main window. The image may be
+    an object placed on some background. 
+  - Set a ROI on the image or load a shape file and apply the shape
+    as ROI. See Natsumushi's manual for the setting of ROI in multiple 
+    ways.
+  - Push [RabRat] toolbar button.
+  
+3b. GabRat-R
+  - Open the image in the Natsumushi 2.0 main window. The image 
+    may be an object placed on some background. 
+  - Set a ROI on the image or load a shape file and apply the shape
+    as ROI. See Natsumushi's manual for the setting of ROI in multiple 
+    ways.
+  - Push [RabRat-R] toolbar button.
+  
+3b. GabRat-RR
+  - Open the image in the Natsumushi 2.0 main window. The image 
+    may be an object placed on some background or one without 
+	background. 
+  - Open the background image in the sub window. To do this, drag
+    the image and drop it into one of the sub windows (right ones),
+    or drop it with pressing [Ctrl] key.
+  - When using [gabrat.random_usebgmask] option, confirm that a mask
+    file (e.g. "foo01.msk") is present in the same folder where the 
+	background image (e.g. "foo01.jpg") exists.	
+  - Set a ROI on the main image or load a shape file and apply the shape
+    as ROI. See Natsumushi's manual for the setting of ROI in multiple 
+    ways.
+  - Push [RabRat-R] toolbar button.
+  
+  
